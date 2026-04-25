@@ -2,7 +2,8 @@ export enum OrderStatus {
   PENDING = 'pending',
   PREPARING = 'preparing',
   READY = 'ready',
-  COMPLETED = 'completed'
+  COMPLETED = 'completed',
+  CANCELLED = 'cancelled'
 }
 
 export interface Product {
@@ -27,6 +28,6 @@ export interface Order {
   items: CartItem[];
   total: number;
   status: OrderStatus;
-  createdAt: number;
+  createdAt: number | string;
   orderNumber: number;
 }
