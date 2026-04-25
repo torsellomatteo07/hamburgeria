@@ -30,4 +30,5 @@ export interface Order {
   status: OrderStatus;
   createdAt: number | string;
   orderNumber: number;
+  tableNumber?: number;
 }
