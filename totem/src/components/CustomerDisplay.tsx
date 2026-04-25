@@ -1,3 +1,2 @@
 import React from 'react';
-const CustomerDisplay = () => <div className="p-10 font-bold text-2xl bg-black text-white h-screen">Display Clienti - Pronti al ritiro</div>;
-export default CustomerDisplay;
+export default function CustomerDisplay() { return <div className="p-20 text-center text-7xl font-black">DISPLAY ORDINI</div>; }

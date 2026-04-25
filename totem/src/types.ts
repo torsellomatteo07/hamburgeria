@@ -4,16 +4,14 @@ export enum OrderStatus {
   READY = 'ready',
   COMPLETED = 'completed'
 }
-
 export interface Product {
   id: string;
   name: string;
   description: string;
   price: number;
   image?: string;
-  category: 'panini' | 'contorni' | 'bevande' | 'dessert';
+  category: 'panini' | 'contorni' | 'bevande';
 }
-
 export interface CartItem {
   id: string;
   productId: string;
@@ -21,12 +19,11 @@ export interface CartItem {
   price: number;
   quantity: number;
 }
-
 export interface Order {
   id: string;
+  orderNumber: number;
   items: CartItem[];
   total: number;
   status: OrderStatus;
   createdAt: number;
-  orderNumber: number;
 }
