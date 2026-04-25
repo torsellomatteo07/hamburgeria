@@ -5,7 +5,6 @@ export enum OrderStatus {
   COMPLETED = 'completed',
   CANCELLED = 'cancelled'
 }
-
 export interface Product {
   id: string;
   name: string;
@@ -14,7 +13,6 @@ export interface Product {
   image?: string;
   category: 'panini' | 'contorni' | 'bevande' | 'dessert';
 }
-
 export interface CartItem {
   id: string;
   productId: string;
@@ -22,7 +20,6 @@ export interface CartItem {
   price: number;
   quantity: number;
 }
-
 export interface Order {
   id: string;
   items: CartItem[];
@@ -30,5 +27,4 @@ export interface Order {
   status: OrderStatus;
   createdAt: number | string;
   orderNumber: number;
-  tableNumber?: number;
 }
