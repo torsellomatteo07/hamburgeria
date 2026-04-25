@@ -1,38 +1,34 @@
 class DatabaseWrapper:
     def __init__(self):
-        # Dati memorizzati in locale (niente DB esterno per ora)
+        # Dati di esempio (Mock data)
         self.products = [
-            {"id": 1, "name": "Classic Burger", "price": 8.5, "category": "panini"},
-            {"id": 2, "name": "Coca Cola", "price": 2.5, "category": "bevande"},
-            {"id": 3, "name": "Patatine", "price": 3.0, "category": "contorni"}
+            {"id": 1, "nome": "Classic Burger", "prezzo": 8.50, "categoria": "panini"},
+            {"id": 2, "nome": "Chicken Burger", "prezzo": 9.00, "categoria": "panini"},
+            {"id": 3, "nome": "Coca Cola", "prezzo": 2.50, "categoria": "bevande"},
+            {"id": 4, "nome": "Patatine", "prezzo": 3.50, "categoria": "contorni"}
         ]
         self.orders = []
 
-    def get_all_products(self):
+    def get_menu(self):
         return self.products
 
-    def add_product(self, data):
-        new_id = len(self.products) + 1
-        data['id'] = new_id
-        self.products.append(data)
-        return data
+    def add_product(self, product):
+        product['id'] = len(self.products) + 1
+        self.products.append(product)
+        return True
 
-    def get_all_orders(self):
+    def get_orders(self):
         return self.orders
 
-    def create_order(self, data):
-        new_order = {
-            "id": len(self.orders) + 1,
-            "items": data['items'],
-            "status": "pending",
-            "table": data.get('table', 0)
-        }
-        self.orders.append(new_order)
-        return new_order
+    def create_order(self, order_data):
+        order_data['id'] = len(self.orders) + 1
+        order_data['stato'] = 'pendenza'
+        self.orders.append(order_data)
+        return order_data['id']
 
-    def update_order_status(self, order_id, status):
-        for o in self.orders:
-            if o['id'] == order_id:
-                o['status'] = status
-                return o
-        return None
+    def update_order_status(self, order_id, new_status):
+        for order in self.orders:
+            if order['id'] == order_id:
+                order['stato'] = new_status
+                return True
+        return False
