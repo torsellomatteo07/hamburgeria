@@ -10,7 +10,7 @@ export interface Product {
   description: string;
   price: number;
   image?: string;
-  category: 'panini' | 'contorni' | 'bevande';
+  category: 'panini' | 'contorni' | 'bevande' | 'dessert';
 }
 export interface CartItem {
   id: string;
@@ -21,9 +21,9 @@ export interface CartItem {
 }
 export interface Order {
   id: string;
-  orderNumber: number;
   items: CartItem[];
   total: number;
   status: OrderStatus;
   createdAt: number;
+  orderNumber: number;
 }
