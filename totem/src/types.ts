@@ -2,9 +2,9 @@ export enum OrderStatus {
   PENDING = 'pending',
   PREPARING = 'preparing',
   READY = 'ready',
-  COMPLETED = 'completed',
-  CANCELLED = 'cancelled'
+  COMPLETED = 'completed'
 }
+
 export interface Product {
   id: string;
   name: string;
@@ -13,6 +13,7 @@ export interface Product {
   image?: string;
   category: 'panini' | 'contorni' | 'bevande' | 'dessert';
 }
+
 export interface CartItem {
   id: string;
   productId: string;
@@ -20,11 +21,12 @@ export interface CartItem {
   price: number;
   quantity: number;
 }
+
 export interface Order {
   id: string;
   items: CartItem[];
   total: number;
   status: OrderStatus;
-  createdAt: number | string;
+  createdAt: number;
   orderNumber: number;
 }
